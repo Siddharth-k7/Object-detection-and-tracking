@@ -1,6 +1,20 @@
 # Object Detection And Tracking
 
-One-line version: a combined computer vision repo for YOLOv11 object detection practice and OpenCV object tracking experiments.
+One-line version: YOLOv11 object detection notebooks plus OpenCV tracking demos in one clean computer vision repo.
+
+<p align="center">
+  <img src="assets/banner.png" alt="Object Detection And Tracking banner" width="900">
+</p>
+
+<p align="center">
+  <a href="https://github.com/Siddharth-k7/Object-detection-and-tracking/actions/workflows/ci.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/Siddharth-k7/Object-detection-and-tracking/ci.yml?branch=main&style=for-the-badge&label=CI" alt="CI status">
+  </a>
+  <img src="https://img.shields.io/badge/tests-unittest-22C55E?style=for-the-badge" alt="Tests">
+  <img src="https://img.shields.io/badge/coverage-not%20tracked-lightgrey?style=for-the-badge" alt="Coverage">
+  <img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="MIT license">
+  <img src="https://img.shields.io/badge/version-v0.1.0-7C3AED?style=for-the-badge" alt="Version">
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
@@ -8,27 +22,72 @@ One-line version: a combined computer vision repo for YOLOv11 object detection p
   <img src="https://img.shields.io/badge/YOLOv11-111827?style=for-the-badge" alt="YOLOv11">
   <img src="https://img.shields.io/badge/Ultralytics-111F68?style=for-the-badge" alt="Ultralytics">
   <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white" alt="Jupyter">
-  <img src="https://img.shields.io/badge/object--tracking-059669?style=for-the-badge" alt="Object tracking">
-</p>
-
-<p align="center">
-  <img src="assets/tracking-demo.gif" alt="Object tracking animation" width="760">
 </p>
 
 ## What It Does
 
-This repo keeps two related computer vision practice areas together:
+This repo combines two things that usually work together:
 
-- object detection with YOLOv11 notebooks
-- object tracking with OpenCV tracker scripts
+- **Object detection**: YOLOv11 notebooks for finding objects in images.
+- **Object tracking**: OpenCV scripts for following a selected object frame by frame.
 
-Useful because detection answers "what is in the frame?" and tracking answers "where did it go next?" Basically, the camera version of keeping an eye on things without looking suspicious.
+It is useful as a learning and showcase repo because it shows both sides of the workflow: first detect the object, then track where it goes. A camera sees chaos; this repo tries to give it a job description.
 
-## Practice Preview
+## Demo Preview
+
+<p align="center">
+  <img src="assets/tracking-demo.gif" alt="Object tracking demo animation" width="760">
+</p>
 
 <p align="center">
   <img src="assets/yolo-output.png" alt="YOLO notebook output" width="720">
 </p>
+
+## Quick Start
+
+Clone the repo:
+
+```bash
+git clone https://github.com/Siddharth-k7/Object-detection-and-tracking.git
+cd Object-detection-and-tracking
+```
+
+Install the basics:
+
+```bash
+pip install -r tracking/opencv_trackers/requirements.txt
+pip install ultralytics jupyter
+```
+
+Open the notebooks:
+
+```bash
+jupyter notebook
+```
+
+Run a tracker demo:
+
+```bash
+python tracking/opencv_trackers/kcf.py
+```
+
+Some trackers need `opencv-contrib-python`, which is already listed in the tracking requirements. If OpenCV complains anyway, it is doing its traditional warm-up routine.
+
+## Repo Structure
+
+```text
+.
+├── assets/                       # banner, GIF, and notebook preview images
+├── docs/                         # extra project notes
+├── notebooks/object_detection/   # YOLOv11 detection notebooks
+├── tests/                        # lightweight repository tests
+├── tracking/opencv_trackers/     # OpenCV tracker demos
+├── .github/workflows/ci.yml      # CI for compile checks and tests
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── LICENSE.md
+└── README.md
+```
 
 ## Topics And Files
 
@@ -45,28 +104,24 @@ Useful because detection answers "what is in the frame?" and tracking answers "w
 | MOSSE tracker | `tracking/opencv_trackers/mosse.py` |
 | TLD tracker | `tracking/opencv_trackers/tld.py` |
 
-## Quick Start
+## Quality Signals
 
-```bash
-pip install -r tracking/opencv_trackers/requirements.txt
-pip install ultralytics jupyter
-jupyter notebook
-```
-
-Open the YOLO notebooks from `notebooks/object_detection/`.
-
-For tracking scripts, run one of the OpenCV tracker files:
-
-```bash
-python tracking/opencv_trackers/kcf.py
-```
-
-Some trackers may need OpenCV contrib support. If OpenCV complains, it is probably asking for `opencv-contrib-python`, not emotional support. Though honestly, both help.
+- GitHub Actions CI runs on pushes and pull requests.
+- Tests check the repo structure and guard against accidentally committed huge files.
+- Tracking scripts are compiled in CI.
+- Large model weights, virtual environments, cache files, and temporary files are ignored.
+- Version starts at `v0.1.0`; changes are tracked in `CHANGELOG.md`.
 
 ## Links
 
 - Repo: https://github.com/Siddharth-k7/Object-detection-and-tracking
+- Docs: [docs/overview.md](docs/overview.md)
 - Ultralytics docs: https://docs.ultralytics.com/
-- OpenCV tracking docs: https://docs.opencv.org/
-- Live demo: not hosted; the notebooks and README preview show the practice outputs.
+- OpenCV docs: https://docs.opencv.org/
+- API docs: not hosted yet; this repo is notebook/script based.
+- Live demo: not hosted; the GIF and notebook output above are the visual demo.
+
+## License
+
+MIT License. See [LICENSE.md](LICENSE.md).
 
